@@ -11,6 +11,7 @@ type ButtonComponent = {
   color?: string;
   atvBtnSdw?: string;
   atvBtnBorder?: string;
+  onFocus?: () => void;
 };
 
 type ButtonStyle = {
@@ -34,6 +35,7 @@ const Button = (props: ButtonComponent) => {
     display,
     atvBtnSdw,
     atvBtnBorder,
+    onFocus,
   } = props;
   const styles = {
     color: color,
@@ -47,21 +49,24 @@ const Button = (props: ButtonComponent) => {
 
   return (
     <Container>
-      <ElButton {...styles}>{text ? text : children}</ElButton>
+      <ElButton {...styles} onClick={onFocus}>
+        {text ? text : children}
+      </ElButton>
     </Container>
   );
 };
 
 Button.defaultProps = {
-  color: false,
-  text: false,
+  color: '',
+  text: '',
   children: null,
   bg: '#f1f3f4',
-  fontSize: false,
-  bold: false,
-  display: false,
+  fontSize: '',
+  bold: '',
+  display: '',
   atvBtnSdw: '0px 0px 3px 1px lightgray',
   atvBtnBorder: '1px solid #70757a',
+  onFocus: () => {},
 };
 
 const Container = styled.div`
