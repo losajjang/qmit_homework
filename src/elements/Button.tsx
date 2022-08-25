@@ -4,6 +4,7 @@ import styled from 'styled-components';
 type ButtonComponent = {
   text?: string;
   children?: string;
+  value?: number | string;
   bg?: string;
   fontSize?: string;
   bold?: string;
@@ -11,7 +12,11 @@ type ButtonComponent = {
   color?: string;
   atvBtnSdw?: string;
   atvBtnBorder?: string;
-  onFocus?: () => void;
+  getOper?: any;
+  getNum?: any;
+  getDot?: any;
+  deleteCalc?: any;
+  getResult?: any;
 };
 
 type ButtonStyle = {
@@ -28,6 +33,7 @@ const Button = (props: ButtonComponent) => {
   const {
     text,
     children,
+    value,
     color,
     bg,
     fontSize,
@@ -35,7 +41,11 @@ const Button = (props: ButtonComponent) => {
     display,
     atvBtnSdw,
     atvBtnBorder,
-    onFocus,
+    getOper,
+    getNum,
+    getDot,
+    deleteCalc,
+    getResult,
   } = props;
   const styles = {
     color: color,
@@ -49,7 +59,12 @@ const Button = (props: ButtonComponent) => {
 
   return (
     <Container>
-      <ElButton {...styles} onClick={onFocus}>
+      <ElButton
+        {...styles}
+        onClick={getNum || getOper || getDot || deleteCalc || getResult}
+        value={value}
+      >
+        {/* <ElButton {...styles} onClick={onFocus}> */}
         {text ? text : children}
       </ElButton>
     </Container>

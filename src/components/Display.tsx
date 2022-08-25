@@ -1,29 +1,43 @@
-import React, {forwardRef} from 'react';
+import React, {forwardRef, useContext, useState} from 'react';
 import styled from 'styled-components';
 import {Text} from '../elements/index';
 import {Icon} from '@iconify/react';
+import {CalcContext} from '../context/CalcContext';
 
-const Display = forwardRef<HTMLDivElement>((_, displayRef) => {
-  return (
-    <>
-      <Container ref={displayRef} tabIndex={-1}>
-        <InnerContainer>
-          <HistoryContents>
-            <Icon icon="pepicons:rewind-time" fontSize={22} color="#70757a" />
-            <Text fontSize="13px" color="#70757a">
-              Ans = 0
-            </Text>
-          </HistoryContents>
-          <Result>
-            <Text fontSize="30px" bold="bold">
-              0
-            </Text>
-          </Result>
-        </InnerContainer>
-      </Container>
-    </>
-  );
-});
+type Props = {
+  calc: string;
+  formula: string;
+  onPopOverOpen: () => void;
+};
+
+const Display = forwardRef<HTMLDivElement, Props>(
+  ({calc, formula, onPopOverOpen}, displayRef) => {
+    return (
+      <>
+        <Container ref={displayRef} tabIndex={-1}>
+          <InnerContainer>
+            <HistoryContents>
+              <Icon
+                icon="pepicons:rewind-time"
+                fontSize={22}
+                color="#70757a"
+                onClick={onPopOverOpen}
+              />
+              <Text fontSize="13px" color="#70757a">
+                {calc.length === 0 ? '' : formula ? `${formula} =` : 'Ans = 0'}
+              </Text>
+            </HistoryContents>
+            <Result>
+              <Text fontSize="30px" bold="bold">
+                {calc.length === 0 ? '0' : calc}
+              </Text>
+            </Result>
+          </InnerContainer>
+        </Container>
+      </>
+    );
+  },
+);
 
 const Container = styled.div`
   height: 72px;
