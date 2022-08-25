@@ -1,12 +1,19 @@
 import React from 'react';
+import styled from 'styled-components';
 import Calculator from './pages/Calculator';
 
 function App() {
   return (
-    <div>
+    <Container>
       <Calculator />
-    </div>
+    </Container>
   );
 }
+
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 150px;
+`
 
 export default App;
