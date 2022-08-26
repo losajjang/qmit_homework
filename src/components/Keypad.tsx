@@ -3,16 +3,22 @@ import styled from 'styled-components';
 import {Button} from '../elements/index';
 
 type KeypadComponent = {
-  getOper: any;
-  getNum: any;
-  getDot: any;
-  deleteCalc: any;
-  getResult: any;
+  getOper: (e: React.ChangeEvent<HTMLButtonElement>) => void;
+  getNum: (e: React.ChangeEvent<HTMLButtonElement>) => void;
+  getDot: (e: React.ChangeEvent<HTMLButtonElement>) => void;
+  deleteCalc: () => void;
+  getResult: () => void;
 };
 
-const Keypad = ({getOper, getNum, getDot, deleteCalc, getResult}: KeypadComponent) => {
+const Keypad = ({
+  getOper,
+  getNum,
+  getDot,
+  deleteCalc,
+  getResult,
+}: KeypadComponent) => {
   return (
-    <Container>
+    <div>
       <RowButton>
         <Button bg="#dadce0" getOper={getOper} value="%">
           %
@@ -85,13 +91,10 @@ const Keypad = ({getOper, getNum, getDot, deleteCalc, getResult}: KeypadComponen
           +
         </Button>
       </RowButton>
-    </Container>
+    </div>
   );
 };
 
-const Container = styled.div`
-  /* bottom: 10px; */
-`;
 const RowButton = styled.div`
   display: flex;
   justify-content: flex-end;

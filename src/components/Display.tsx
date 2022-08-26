@@ -1,8 +1,7 @@
-import React, {forwardRef, useContext, useState} from 'react';
+import React, {forwardRef} from 'react';
 import styled from 'styled-components';
 import {Text} from '../elements/index';
 import {Icon} from '@iconify/react';
-import {CalcContext} from '../context/CalcContext';
 
 type Props = {
   calc: string;

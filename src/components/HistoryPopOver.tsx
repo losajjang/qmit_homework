@@ -2,12 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import {Icon} from '@iconify/react';
 
-type HistoryPopOverComponent = {
-  prevFormula?: any;
-  prevResult?: any;
-};
-
-const HistoryPopOver = ({prevFormula, prevResult}: HistoryPopOverComponent) => {
+const HistoryPopOver = ({prevFormula}: {prevFormula:string[]}) => {
   return (
     <Container>
       <Icon icon="pepicons:rewind-time" fontSize={22} color="#3871e0" />
