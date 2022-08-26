@@ -1,6 +1,7 @@
 # 큐엠아이티 입사 사전과제
 
 ## 계산기 만들기
+<img width="807" alt="스크린샷 2022-08-26 10 57 00" src="https://user-images.githubusercontent.com/97146131/186858999-e966b27c-7369-452e-b260-64c452775eff.png">
 
 ### 사용 프레임워크
 * React
@@ -27,8 +28,7 @@
 
 
 ### 구현 영상, 스크린 샷
-<img width="807" alt="스크린샷 2022-08-26 10 57 00" src="https://user-images.githubusercontent.com/97146131/186800428-7d9e45e4-89ee-4a5e-a534-624a0824cd41.png">
-![calc](https://user-images.githubusercontent.com/97146131/186858685-38f80b52-d290-407d-bc6b-8ed222885a91.gif)
+![calc](https://user-images.githubusercontent.com/97146131/186858893-4d9d996e-c7b8-42b6-9ac3-1f01a06d12ba.gif)
 
 ### 과제 후기
 * 좋았던 점
