@@ -27,7 +27,7 @@
 ✅ 계산식 표시창 내의 최초 상태값 0 구현.  
 
 
-### 구현 영상, 스크린 샷
+### 구현 영상
 ![calc](https://user-images.githubusercontent.com/97146131/186858893-4d9d996e-c7b8-42b6-9ac3-1f01a06d12ba.gif)
 
 ### 과제 후기
