@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useRef, useState} from 'react';
 import styled from 'styled-components';
 import Keypad from '../components/Keypad';
 import Display from '../components/Display';
@@ -9,19 +9,18 @@ function Calculator() {
   const [formula, setFormula] = useState('');
   const [operDupCheck, setOperDupCheck] = useState(true);
   const [dotDupCheck, setDotDupCheck] = useState(true);
-  const [prevFormula, setPrevFormula] = useState<any>([]);
-  const [prevResult, setPrevResult] = useState<any>([]);
+  const [prevFormula, setPrevFormula] = useState<string[]>([]);
   const [popOver, setPopOver] = useState(false);
 
   const displayRef = useRef<HTMLDivElement>(null);
 
-  const getNum = (e: any) => {
+  const getNum = (e: React.ChangeEvent<HTMLButtonElement>) => {
     setCalc(prev => prev + e.target.value);
     setOperDupCheck(true);
     displayRef.current?.focus();
   };
 
-  const getOper = (e: any) => {
+  const getOper = (e: React.ChangeEvent<HTMLButtonElement>) => {
     if (operDupCheck) {
       setCalc(prev => prev + e.target.value);
       setOperDupCheck(false);
@@ -30,7 +29,7 @@ function Calculator() {
     }
   };
 
-  const getDot = (e: any) => {
+  const getDot = (e: React.ChangeEvent<HTMLButtonElement>) => {
     if (calc.length === 0) {
       return;
     }
@@ -58,7 +57,6 @@ function Calculator() {
       setCalc(result);
       setFormula(calc);
       setPrevFormula([...prevFormula, `${calc}=${eval(result)}`]);
-      setPrevResult([...prevResult, eval(result)]);
     } else if (isNaN(eval(inputFormula))) {
       setCalc('');
     } else if (eval(inputFormula) === Infinity) {
@@ -69,7 +67,6 @@ function Calculator() {
       setCalc(eval(inputFormula));
       setFormula(calc);
       setPrevFormula([...prevFormula, `${calc}=${eval(inputFormula)}`]);
-      setPrevResult([...prevResult, eval(inputFormula)]);
     }
   };
 
@@ -99,9 +96,7 @@ function Calculator() {
           deleteCalc={deleteCalc}
           getResult={getResult}
         />
-        {popOver && (
-          <HistoryPopOver prevFormula={prevFormula} prevResult={prevResult} />
-        )}
+        {popOver && <HistoryPopOver prevFormula={prevFormula} />}
       </InnerContainer>
     </Container>
   );

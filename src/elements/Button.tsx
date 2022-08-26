@@ -64,7 +64,6 @@ const Button = (props: ButtonComponent) => {
         onClick={getNum || getOper || getDot || deleteCalc || getResult}
         value={value}
       >
-        {/* <ElButton {...styles} onClick={onFocus}> */}
         {text ? text : children}
       </ElButton>
     </Container>
